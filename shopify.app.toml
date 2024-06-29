@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "2de1dff0fccc1ffde6c290a558212956"
+name = "recommendit"
+handle = "recommendit-3"
+application_url = "https://collection-margaret-corn-flu.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "recommend-it.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://collection-margaret-corn-flu.trycloudflare.com/auth/callback",
+  "https://collection-margaret-corn-flu.trycloudflare.com/auth/shopify/callback",
+  "https://collection-margaret-corn-flu.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-04"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
