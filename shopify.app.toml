@@ -3,7 +3,7 @@
 client_id = "2de1dff0fccc1ffde6c290a558212956"
 name = "recommendit"
 handle = "recommendit-3"
-application_url = "https://collection-margaret-corn-flu.trycloudflare.com"
+application_url = "https://lm-bridges-island-paintball.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://collection-margaret-corn-flu.trycloudflare.com/auth/callback",
-  "https://collection-margaret-corn-flu.trycloudflare.com/auth/shopify/callback",
-  "https://collection-margaret-corn-flu.trycloudflare.com/api/auth/callback"
+  "https://lm-bridges-island-paintball.trycloudflare.com/auth/callback",
+  "https://lm-bridges-island-paintball.trycloudflare.com/auth/shopify/callback",
+  "https://lm-bridges-island-paintball.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

@@ -8,58 +8,68 @@
           "id": "collection",
           "label": "Select Collection"
         }
-      ]
-      
+      ],
     }
     {% endschema %}
     
     {% layout none %}
-    
+    <p>{{section.settings.collection}}</p>
     {% if section.settings.collection != blank %}
       {% assign collection_handle = section.settings.collection %}
-      {% if collections[collection_handle] %}
-        {% capture collection %}
-          {{ collections[collection_handle] }}
-        {% endcapture %}
-    
+      {% assign collection = collections[collection_handle] %}
+      
+      {% if collection %}
+        <h1>{{ collection.title }}</h1>
+        
         <select id="sort-by">
           {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
-    
+          
           {% for option in collection.sort_options %}
             <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>
               {{ option.name }}
             </option>
           {% endfor %}
         </select>
-    
+        
+        <div class="products">
+          {% for product in collection.products %}
+            <div class="product">
+              <h2>{{ product.title }}</h2>
+              <p>{{ product.price | money }}</p>
+              <!-- Add other product details as needed -->
+            </div>
+          {% endfor %}
+        </div>
+        
         <script>
           Shopify.queryParams = {};
-    
-          // Preserve existing query parameters
+          
+       
           if (location.search.length) {
             var params = location.search.substr(1).split('&');
-    
+            
             for (var i = 0; i < params.length; i++) {
               var keyValue = params[i].split('=');
-    
+              
               if (keyValue.length) {
                 Shopify.queryParams[decodeURIComponent(keyValue[0])] = decodeURIComponent(keyValue[1]);
               }
             }
           }
-    
+          
           document.querySelector('#sort-by').addEventListener('change', function(e) {
             var value = e.target.value;
-    
+            
             Shopify.queryParams.sort_by = value;
             location.search = new URLSearchParams(Shopify.queryParams).toString();
           });
         </script>
-    
+        
       {% else %}
-        <p>Collection '{{ collection_handle }}' not found.</p>
+        <p>Collection '{{ collection_handle }}' not found or is empty.</p>
       {% endif %}
+      
     {% else %}
-      <p>Please select a collection in the section settings.</p>
+      <p>Pls select a collection in the section settings.</p>
     {% endif %}
     
