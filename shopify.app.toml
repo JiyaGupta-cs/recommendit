@@ -3,7 +3,7 @@
 client_id = "2de1dff0fccc1ffde6c290a558212956"
 name = "recommendit"
 handle = "recommendit-3"
-application_url = "https://lm-bridges-island-paintball.trycloudflare.com"
+application_url = "https://midnight-extensions-gr-tons.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://lm-bridges-island-paintball.trycloudflare.com/auth/callback",
-  "https://lm-bridges-island-paintball.trycloudflare.com/auth/shopify/callback",
-  "https://lm-bridges-island-paintball.trycloudflare.com/api/auth/callback"
+  "https://midnight-extensions-gr-tons.trycloudflare.com/auth/callback",
+  "https://midnight-extensions-gr-tons.trycloudflare.com/auth/shopify/callback",
+  "https://midnight-extensions-gr-tons.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
